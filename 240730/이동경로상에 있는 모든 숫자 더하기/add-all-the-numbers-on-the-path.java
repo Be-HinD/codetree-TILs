@@ -26,8 +26,8 @@ public class Main {
             }
         }
 
-        int nx = (N-1) / 2;
-        int ny = (N-1) / 2;
+        int nx = N / 2;
+        int ny = N / 2;
         res += map[nx][ny];
         while(!q.isEmpty()) {
             char command = q.poll();
@@ -47,7 +47,7 @@ public class Main {
             else {
                 //오른쪽
                 if(dist == 0) dist = 3;
-                else dist = (dist-1) % 4;
+                else dist = dist-1;
             }
 
         }
@@ -56,7 +56,7 @@ public class Main {
     }
 
     static boolean isRangeCheck(int x, int y) {
-        if(x>0 && x<N && y>0 && y<N) return true;
+        if(x>=0 && x<N && y>=0 && y<N) return true;
         return false;
     }
 }
