@@ -16,13 +16,10 @@ public class Main {
         for(int i=0; i<N; i++) {
             st = new StringTokenizer(br.readLine());
             for(int j=0; j<M; j++) {
-                int idx = Integer.parseInt(st.nextToken());
-                if(idx < 0) map[i][j] = -1;
-                else map[i][j] = idx;
+                map[i][j] = Integer.parseInt(st.nextToken());
             }
         }
 
-        res = -1;
         //완전탐색
         for(int i=0; i<N; i++) {
             for(int j=0; j<M; j++) {
@@ -32,7 +29,7 @@ public class Main {
                 if(map[i][j] < 0) continue;
                 res = Math.max(res, 1);
                 for(int k=i; k<N; k++) {
-                    for(int l=j+1; l<M; l++) {
+                    for(int l=j; l<M; l++) {
                         tempCnt = 0;
                         if(validateCheck(i,j,k,l)) res = Math.max(res, tempCnt);
                     }
@@ -52,6 +49,7 @@ public class Main {
                 if(map[i][j] < 0) return false;
             }
         }
+
 
         return true;
     }
