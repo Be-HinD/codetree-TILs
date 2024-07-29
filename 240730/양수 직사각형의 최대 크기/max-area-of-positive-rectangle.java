@@ -26,7 +26,7 @@ public class Main {
                 //map[i][j]를 왼쪽 상단 모서리 지점으로 고정
                 // i = i ~ N , j = (j+1) ~ M 까지를 우측 하단 모서리 지점으로 변경하면서
                 // 양수로의 집합이 되는지 체크
-                if(map[i][j] < 0) continue;
+                if(map[i][j] <= 0) continue;
                 res = Math.max(res, 1);
                 for(int k=i; k<N; k++) {
                     for(int l=j; l<M; l++) {
@@ -46,7 +46,7 @@ public class Main {
         for(int i=li; i<=ri; i++) {
             for(int j=lj; j<=rj; j++) {
                 tempCnt++;
-                if(map[i][j] < 0) return false;
+                if(map[i][j] <= 0) return false;
             }
         }
 
