@@ -24,13 +24,13 @@ public class Main {
         //느리다면 느린 열차부터 다시 카운트
 
         int currentSpeed = train[N-1][1];
-        for(int i=N-2; i>0; i--) {
-            if(currentSpeed < train[i-1][1]) {
-                currentSpeed = Math.min(currentSpeed, train[i-1][1]);
+        for(int i=N-2; i>=0; i--) {
+            if(currentSpeed < train[i][1]) {
+                currentSpeed = Math.min(currentSpeed, train[i][1]);
             }
             else {
                 res++;
-                currentSpeed = train[i-1][1];
+                currentSpeed = train[i][1];
             }
         }
 
