@@ -8,6 +8,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
+        StringBuilder sb = new StringBuilder();
 
         N = Integer.parseInt(br.readLine());
 
@@ -17,9 +18,19 @@ public class Main {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        Arrays.sort(arr);
+        boolean sorted = false;
+        while(!sorted) {
+            sorted = true;
+            for(int i=0; i<N-1; i++) {
+                if(arr[i] > arr[i+1]) {
+                    int temp = arr[i];
+                    arr[i] = arr[i+1];
+                    arr[i+1] = temp;
+                    sorted = false;
+                }
+            }
+        }
 
-        StringBuilder sb = new StringBuilder();
 
         for(int idx : arr) sb.append(idx).append(" ");
 
