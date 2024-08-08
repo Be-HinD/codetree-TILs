@@ -4,7 +4,6 @@ import java.util.*;
 //Code Tree
 public class Main {
     static int N;
-    static int[] arr;
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
@@ -13,7 +12,7 @@ public class Main {
         N = Integer.parseInt(br.readLine());
 
         st = new StringTokenizer(br.readLine());
-        arr = new int[N];
+        int[] arr = new int[N];
 
         for(int i=0; i<N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
@@ -42,7 +41,7 @@ public class Main {
         int k = low;
 
         int[] merged = new int[N];
-        
+
         while(i<=mid && j<=high) {
             if(arr[i] <= arr[j]) {
                 merged[k++] = arr[i++];
