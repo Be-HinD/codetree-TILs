@@ -4,6 +4,7 @@ import java.util.*;
 //Code Tree
 public class Main {
     static int N;
+    static int[] merged;
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
@@ -18,6 +19,7 @@ public class Main {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
+        merged = new int[N];
         mergeSort(arr, 0, arr.length-1);
 
         for(int i=0; i<N; i++) sb.append(arr[i]).append(" ");
@@ -35,7 +37,6 @@ public class Main {
         }
     }
 
-    static int[] merged = new int[N];
     private static void merge(int[] arr, int low, int mid, int high) {
         int i = low;
         int j = mid+1;
