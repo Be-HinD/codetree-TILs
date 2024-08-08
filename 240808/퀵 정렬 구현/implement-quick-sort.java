@@ -20,7 +20,7 @@ public class Main {
         }
 
         quickSort(0, arr.length - 1);
-        
+
         for(int idx : arr) sb.append(idx).append(" ");
 
         System.out.println(sb);
@@ -41,11 +41,7 @@ public class Main {
             pq.offer(new int[]{high, arr[high]});
             pq.offer(new int[]{low + (high - low) / 2, arr[low + (high - low) / 2]});
             pq.poll();
-            int[] mid = pq.poll();
-            if (mid[0] != high) {
-                swap(mid[0], high);
-            }
-            return high; // 피벗의 인덱스를 반환
+            return pq.poll()[0]; // 피벗의 인덱스를 반환
         }
     }
 
