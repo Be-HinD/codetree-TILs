@@ -35,12 +35,12 @@ public class Main {
         }
     }
 
+    static int[] merged = new int[N];
     private static void merge(int[] arr, int low, int mid, int high) {
         int i = low;
         int j = mid+1;
         int k = low;
 
-        int[] merged = new int[N];
 
         while(i<=mid && j<=high) {
             if(arr[i] <= arr[j]) {
