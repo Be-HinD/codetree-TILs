@@ -24,9 +24,12 @@ public class Main {
 
             if(arr[candidateValue] != t) continue;
 
-            int cnt = 1;
+            int cnt = 0;
+            if(candidateValue != i) cnt++;  //같은 원소 예외처리
+
             for(int j=candidateValue+1; j<N; j++) {
                 if(arr[j] != t) break;
+                if(j == i) continue;    //같은 원소 예외처리
                 cnt++;
             }
             res += cnt;
