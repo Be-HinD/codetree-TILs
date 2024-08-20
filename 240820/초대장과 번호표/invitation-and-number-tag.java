@@ -3,7 +3,6 @@ import java.util.*;
 
 //CodeTree
 public class Main {
-    static int[] arr;
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -15,26 +14,42 @@ public class Main {
 
         set.add(1);
 
-        for(int i=0; i<G; i++) {
+        List<List<Integer>> list = new ArrayList<>();
+
+        for(int i=0; i<=G; i++) list.add(new ArrayList<>());
+
+        for(int i=0; i<G; i++) {    //인접 리스트 생성
             st = new StringTokenizer(br.readLine());
             int people = Integer.parseInt(st.nextToken());  //i번째 그룹 인원 수
-            int cnt = 0;
-            int temp = -1;
             for(int j=0; j<people; j++) {
                 int num = Integer.parseInt(st.nextToken());
-                if(set.contains(num)) {
-                    cnt++;
-                }
-                else {
-                    temp = num;
-                }
-            }
-            if(cnt == people-1) {
-                set.add(temp);
+                list.get(i+1).add(num);
             }
         }
 
+        while(true) {
+            boolean flag = true;
+            for (int i = 1; i <= G; i++) {
+                int cnt = 0;
+                int temp = -1;
+                for(int idx : list.get(i)) {
+                    if(set.contains(idx)) {
+                        cnt++;
+                    }
+                    else {
+                        temp = idx;
+                    }
+                }
+                if(cnt == list.get(i).size()-1) {
+                    set.add(temp);
+                    flag = false;
+                }
+            }
+            if(flag) break;
+        }
+
         System.out.println(set.size());
+
 
 
 
