@@ -19,7 +19,7 @@ public class Main {
 
         for(int idx : set) {
             int prev = arr[0];
-            int temp = 1;
+            int temp = 0;
             for(int i=0; i<N; i++) {
                 if(arr[i] == idx) {
                     continue;
