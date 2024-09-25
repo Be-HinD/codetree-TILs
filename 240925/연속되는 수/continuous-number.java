@@ -31,6 +31,7 @@ public class Main {
                 }
                 prev = arr[i];
             }
+            res = Math.max(res, temp);
         }
 
         System.out.println(res);
