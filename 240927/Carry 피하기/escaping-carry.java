@@ -17,8 +17,6 @@ public class Main {
 
         Map<Integer, Integer> map = new HashMap<>();
 
-        for(int i=1; i<10; i++) map.put(i, 0);
-
         DFS(0, map, 0);
 
         System.out.println(res);
@@ -42,11 +40,9 @@ public class Main {
         //p원소 선택한 Case 및 선택하지 않은 Case 모두 재귀호출
         if(flag) {
             Map<Integer, Integer> chMap = new HashMap<>();
-            List<Integer> chList = new ArrayList<>();
             num = 1;
             for(int i=idx.length()-1; i>=0; i--) {
-                chMap.put(num, chMap.getOrDefault(num, 0) + (idx.charAt(i) - '0'));
-                num++;
+                chMap.put(num, list.getOrDefault(num++, 0) + (idx.charAt(i) - '0'));
             }
             DFS(p+1, chMap, cnt+1);
         }
