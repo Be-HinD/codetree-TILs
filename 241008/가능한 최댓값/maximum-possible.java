@@ -12,16 +12,20 @@ public class Main {
             st = new StringTokenizer(br.readLine());
             int x = Integer.parseInt(st.nextToken());
             int y = Integer.parseInt(st.nextToken());
-            pq.offer(new int[]{x,i});
-            pq.offer(new int[]{y,i});
+            pq.offer(new int[]{x,i,0});
+            pq.offer(new int[]{y,i,1});
         }
 
         Set<Integer> set = new HashSet<>();
         int res = 0;
         int cnt = 0;
+        int left = 0;
+        int right = 0;
         while(!pq.isEmpty()) {
             int[] cur = pq.poll();
             if(set.contains(cur[1])) continue;
+            if(left > 15) continue;
+            if(right > 15) continue;
             res += cur[0];
             set.add(cur[1]);
             cnt++;
