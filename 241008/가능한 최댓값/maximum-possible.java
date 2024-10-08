@@ -24,8 +24,8 @@ public class Main {
         while(!pq.isEmpty()) {
             int[] cur = pq.poll();
             if(set.contains(cur[1])) continue;
-            if(cur[2] == 0 && left > 15) continue;
-            if(cur[2] == 1 && right > 15) continue;
+            if(cur[2] == 0 && left >= 15) continue;
+            if(cur[2] == 1 && right >= 15) continue;
 
             if(cur[2] == 0) left++;
             if(cur[2] == 1) right++;
@@ -34,6 +34,7 @@ public class Main {
             cnt++;
             if(cnt == 30) break;
         }
+
 
         System.out.println(res);
     }
