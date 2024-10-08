@@ -24,8 +24,11 @@ public class Main {
         while(!pq.isEmpty()) {
             int[] cur = pq.poll();
             if(set.contains(cur[1])) continue;
-            if(left > 15) continue;
-            if(right > 15) continue;
+            if(cur[2] == 0 && left > 15) continue;
+            if(cur[2] == 1 && right > 15) continue;
+
+            if(cur[2] == 0) left++;
+            if(cur[2] == 1) right++;
             res += cur[0];
             set.add(cur[1]);
             cnt++;
